@@ -2,5 +2,4 @@
 . "$(dirname -- "$0")/_/husky.sh"
 
 npm run css:typegen
-npm run fmt
 npm run lint
