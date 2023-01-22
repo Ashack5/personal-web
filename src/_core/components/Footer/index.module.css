@@ -1,0 +1,11 @@
+.footer {
+  padding: 40px 16px 32px;
+}
+
+.copyright {
+  text-align: center;
+  & small {
+    font-size: 11px;
+    color: rgba(95, 95, 95, 0.9);
+  }
+}

@@ -1,0 +1,49 @@
+@import url('https://fonts.googleapis.com/css2?family=Noto+Sans+JP:wght@400;700&display=swap');
+
+.article {
+  width: 640px;
+  margin: 32px auto;
+  font-family: 'Noto Sans JP', sans-serif;
+  @media screen and (max-width: 768px) {
+    width: auto;
+    padding: 0 16px;;
+  }
+
+  & h1 {
+    font-size: 32px;
+    @media screen and (max-width: 768px) {
+      font-size: 24px;
+      line-height: 1.5;
+    }
+  }
+
+  & h2 {
+    font-size: 24px;
+    @media screen and (max-width: 768px) {
+      font-size: 20px;
+      line-height: 1.5;
+    }
+  }
+
+  & p {
+    margin-top: 16px;
+  }
+
+  & a {
+    &:hover {
+      opacity: 0.8;
+    }
+  }
+}
+
+.date {
+  margin-top: 0 !important;
+  text-align: right;
+  font-size: 12px;
+  color: rgba(8,19,26,0.3215686274509804);
+}
+
+.text {
+  margin-top: 24px;
+  line-height: 2.25rem;
+}
