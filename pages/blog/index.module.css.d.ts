@@ -1,10 +1,10 @@
 declare const styles: {
+  readonly "main": string
+  readonly "contents": string
+  readonly "list": string
   readonly "eyecatch": string
-  readonly "article": string
-  readonly "head": string
-  readonly "date": string
-  readonly "word": string
+  readonly "title": string
   readonly "words": string
-  readonly "text": string
+  readonly "date": string
 }
 export = styles

@@ -1,5 +1,6 @@
 /* eslint-disable @next/next/no-img-element */
 import React from 'react'
+import Link from 'next/link'
 import styles from './index.module.css'
 
 export const Header = () => {
@@ -7,7 +8,7 @@ export const Header = () => {
     <header className={styles.header}>
       <div>
         <div className={styles.logo}>
-          <a href='#'>Ashacks Blog</a>
+          <Link href='/blog/'>Ashacks Blog</Link>
         </div>
       </div>
     </header>

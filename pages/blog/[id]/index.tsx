@@ -2,10 +2,10 @@
 import type { InferGetStaticPropsType, NextPage } from 'next'
 import styles from './index.module.css'
 import { format } from 'date-fns'
-import { client } from '../../src/libs/client'
+import { client } from '../../../src/libs/client'
 import Head from 'next/head'
-import { Header } from '../../src/_core/components/Header'
-import { Footer } from '../../src/_core/components/Footer'
+import { Header } from '../../../src/_core/components/Header'
+import { Footer } from '../../../src/_core/components/Footer'
 
 // 静的生成のためのパスを指定します
 export const getStaticPaths = async () => {
@@ -27,12 +27,16 @@ export const getStaticProps = async (context: any) => {
 }
 
 const Blog: NextPage<InferGetStaticPropsType<typeof getStaticProps>> = ({ blog }) => {
-  const mainWords = blog.word.split(/\n/)
   return (
     <>
       <Head>
         <title>{blog.title} | Ashacks Blog</title>
         <meta name='description' content={blog.title} />
+        <meta property='og:title' content={blog.title} />
+        <meta property='og:description' content={blog.title} />
+        <meta property='og:type' content='article' />
+        <meta property='og:url' content={`https://ashacks.jp/blog/${blog.id}`} />
+        <meta property='og:image' content={blog.eyecatch.url} />
         <link rel='icon' href='/favicon.ico' />
       </Head>
       <Header />
@@ -47,7 +51,7 @@ const Blog: NextPage<InferGetStaticPropsType<typeof getStaticProps>> = ({ blog }
             <div className={styles.words}>
               <p>この記事のキーワード</p>
               <ul>
-                {mainWords.map((value: string, index: number) => (
+                {blog.word.split(/\n/).map((value: string, index: number) => (
                   <li key={index}>
                     <div>{value}</div>
                   </li>
