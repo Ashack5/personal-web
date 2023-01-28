@@ -17,7 +17,7 @@ export const getStaticProps = async () => {
   }
 }
 
-const Home: NextPage<InferGetStaticPropsType<typeof getStaticProps>> = ({ blog }) => {
+const Blog: NextPage<InferGetStaticPropsType<typeof getStaticProps>> = ({ blog }) => {
   return (
     <>
       <Head>
@@ -30,7 +30,12 @@ const Home: NextPage<InferGetStaticPropsType<typeof getStaticProps>> = ({ blog }
         {/* <meta property='og:image' content={`https://ashacks.jp/blog/${blog.eyecatch.url}`} /> */}
         <link rel='icon' href='/favicon.ico' />
       </Head>
-      <Header />
+      <Header
+        header={{
+          title: 'Ashacks Blog',
+          url: '/blog/',
+        }}
+      />
       <main className={styles.main}>
         <div>
           <ul className={styles.contents}>
@@ -41,6 +46,7 @@ const Home: NextPage<InferGetStaticPropsType<typeof getStaticProps>> = ({ blog }
                     <img src={blog.eyecatch.url} alt='' width={blog.eyecatch.width} height={blog.eyecatch.height} />
                   </div>
                   <p className={styles.title}>{blog.title}</p>
+                  <p className={styles.date}>{format(new Date(blog.publishedAt), 'yyyy年MM月dd日')}</p>
                   <ul className={styles.words}>
                     {blog.word.split(/\n/).map((value: string, index: number) => (
                       <li key={index}>
@@ -48,7 +54,6 @@ const Home: NextPage<InferGetStaticPropsType<typeof getStaticProps>> = ({ blog }
                       </li>
                     ))}
                   </ul>
-                  <p className={styles.date}>{format(new Date(blog.publishedAt), 'yyyy年MM月dd日')}</p>
                 </Link>
               </li>
             ))}
@@ -60,4 +65,4 @@ const Home: NextPage<InferGetStaticPropsType<typeof getStaticProps>> = ({ blog }
   )
 }
 
-export default Home
+export default Blog

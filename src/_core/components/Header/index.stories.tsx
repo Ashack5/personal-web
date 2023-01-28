@@ -7,6 +7,12 @@ export default {
   component: Header,
 } as ComponentMeta<typeof Header>
 
-const Template: ComponentStory<typeof Header> = () => <Header />
+const Template: ComponentStory<typeof Header> = (args) => <Header {...args} />
 
 export const Default = Template.bind({})
+Default.args = {
+  header: {
+    title: 'Ashacks Blog',
+    url: '/',
+  },
+}

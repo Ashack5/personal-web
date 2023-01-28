@@ -26,7 +26,7 @@ export const getStaticProps = async (context: any) => {
   }
 }
 
-const Blog: NextPage<InferGetStaticPropsType<typeof getStaticProps>> = ({ blog }) => {
+const Article: NextPage<InferGetStaticPropsType<typeof getStaticProps>> = ({ blog }) => {
   return (
     <>
       <Head>
@@ -39,7 +39,12 @@ const Blog: NextPage<InferGetStaticPropsType<typeof getStaticProps>> = ({ blog }
         <meta property='og:image' content={blog.eyecatch.url} />
         <link rel='icon' href='/favicon.ico' />
       </Head>
-      <Header />
+      <Header
+        header={{
+          title: 'Ashacks Blog',
+          url: '/blog/',
+        }}
+      />
       <main>
         <article>
           <div className={styles.eyecatch}>
@@ -72,4 +77,4 @@ const Blog: NextPage<InferGetStaticPropsType<typeof getStaticProps>> = ({ blog }
   )
 }
 
-export default Blog
+export default Article

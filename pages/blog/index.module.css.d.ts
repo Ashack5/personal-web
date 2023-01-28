@@ -4,7 +4,7 @@ declare const styles: {
   readonly "list": string
   readonly "eyecatch": string
   readonly "title": string
-  readonly "words": string
   readonly "date": string
+  readonly "words": string
 }
 export = styles
